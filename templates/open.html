@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open mecomment.dat</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="/static/wave.mp4" type="video/mp4">
+    </video>
+
+    <div id="app">
+        <h1>Open Your mecomment.dat File</h1>
+        
+        <div id="drop-zone">
+            <p id="drop-icon">DRAG📥DROP</p>
+            <p>or</p>
+            <button type="button" id="file-select-btn">Browse File</button>
+            <input type="file" id="file-input" accept=".dat" style="display: none;">
+        </div>
+
+        <a href="/" class="link-btn" style="text-align: center; margin-top: 20px; max-width: 200px;">Back</a>
+    </div>
+
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const fileSelectBtn = document.getElementById('file-select-btn');
+
+        // Déclenche l'input file lors du clic sur le bouton "Browse"
+        fileSelectBtn.addEventListener('click', () => fileInput.click());
+
+        // Gestion du changement de fichier via l'input "Browse"
+        fileInput.addEventListener('change', (e) => {
+            handleFile(e.target.files[0]);
+        });
+
+        // Empêcher le comportement par défaut du navigateur (ouvrir le fichier dans l'onglet)
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        // Effet visuel quand on survole la zone avec un fichier
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => dropZone.classList.add('highlight'), false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => dropZone.classList.remove('highlight'), false);
+        });
+
+        // Gestion du dépôt (Drop)
+        dropZone.addEventListener('drop', (e) => {
+            const dt = e.dataTransfer;
+            const file = dt.files[0];
+            handleFile(file);
+        });
+
+        // Fonction pour lire le fichier et l'envoyer vers l'éditeur
+        function handleFile(file) {
+            if (!file) return;
+
+            // Optionnel : vérification du nom du fichier si vous voulez forcer "mecomment.dat"
+            if (file.name !== "mecomment.dat" && !file.name.endsWith('.dat')) {
+                alert("Please upload a valid .dat file (preferably mecomment.dat)");
+                return;
+            }
+
+            const reader = new FileReader();
+            
+            // Lecture du fichier en tant que texte
+            reader.readAsText(file);
+            
+            reader.onload = function() {
+                // On stocke le contenu textuel dans le localStorage
+                localStorage.setItem('loadedMecommentContent', reader.result);
+                
+                // Redirection automatique vers la page de l'éditeur (assurez-vous du nom du fichier HTML de votre éditeur)
+                window.location.href = '/editor'; 
+            };
+
+            reader.onerror = function() {
+                alert("Error reading file.");
+            };
+        }
+    </script>
+</body>
+</html>

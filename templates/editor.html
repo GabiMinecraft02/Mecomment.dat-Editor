@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mecomment.dat editor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="/static/wave.mp4" type="video/mp4">
+        Votre navigateur ne prend pas en charge les vidéos HTML5.
+    </video>
+
+    <div id="app">
+        <h1>mecomment.dat Editor</h1>
+        <textarea placeholder="Enter your mecomment.dat content here..." rows="20" cols="140"></textarea>
+        
+        <div class="dropdown">
+            <button type="button" class="dropdown-btn">Moving Icons ▾</button>
+            <div class="dropdown-content">
+                
+                <div class="dropdown-header">--- CONTROLLER & SYSTEM ---</div>
+                <button type="button" class="icon-insert-btn" data-bytes="efa280">Circle</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa281">Cross</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa282">Square</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa283">Triangle</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa284">DPAD Up</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa285">DPAD Down</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa286">DPAD Left</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa287">DPAD Right</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa288">L1</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa289">L2</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa28a">L3</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa28b">R1</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa28c">R2</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa28d">R3</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa28e">Select</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa28f">Start</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa292">PSButton</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa293">L2/DPAD Left</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa294">R2/DPAD Right</button>
+                
+                <div class="dropdown-header">--- AUDIO & STATUS ---</div>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2a0">Speaker0</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2a1">Speaker1</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2a2">Speaker2</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2a3">Speaker3</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2a4">Mic Muted</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2a5">HQ</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2a6">Arrow Right</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2a7">0/3 Battery</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2a8">1/3 Battery</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2a9">2/3 Battery</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2aa">3/3 Battery</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2ab">Loading Battery (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2ac">Bronze Trophy</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2ad">Silver Trophy</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2ae">Gold Trophy</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2af">Platin Trophy</button>
+                
+                <div class="dropdown-header">--- UI & ICONS ---</div>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2b0">Caps</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2b2">Keyboard</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2b3">Finger/Mouse</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2b4">Circle in Circle</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2b5">Circle</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2b6">PSPlus</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2b7">Headset</button>
+                <button type="button" class="icon-insert-btn" data-bytes="efa2b8">Headset in Circle</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91a1">2 Hearts (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91a2">Broken Heart (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91a3">Heart with Arrow (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91a4">Heart</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91a5">Spades</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91a6">Clubs</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91a7">Diamond</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91a8">!</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91a9">!!</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91aa">?</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91ab">?!</button>
+                
+                <div class="dropdown-header">--- EFFECTS & MUSIC ---</div>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91ad">Light Bulb</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91ae">Explosion (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91af">3 Drops (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91b0">Drop (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91b1">Blast</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91b2">Flower</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91b3">Skull</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91b6">Stars (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91b7">Fire (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91b8">Note</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91b9">Note1</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91ba">Note2</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91bb">Note3</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91bc">2Notes</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef91bd">2Notes1</button>
+
+                <div class="dropdown-header">--- EXPRESSIONS & WEATHER ---</div>
+                <button type="button" class="icon-insert-btn" data-bytes="ef928d">Lips</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef928e">Lips with Tongue</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef928f">Kissing Lips</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef9290">Nose</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef9293">Ear</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef9294">Feet</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef9295">Feet1</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef929f">Sun (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92a0">Flowers (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92a1">Umbrella</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92a2">Rainbow</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92a3">Umbrella Raining (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92a4">Snowman (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92a5">Storm (Moving)</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92a6">Tornado</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92a8">Closed Umbrella</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92a9">Snowflake</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92b7">Bouquet</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92b8">Ring</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92b9">Loop</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92ba">Present</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92bb">Cake</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92bc">Money</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92bd">¥</button>
+                <button type="button" class="icon-insert-btn" data-bytes="ef92be">$</button>
+            </div>
+        </div>
+
+        <button id="save-btn">Save and Download</button>
+        <a href="/">
+            <button type="button">Back</button> 
+        </a>
+    </div>
+    <script src="/static/editor.js"></script>
+</body>
+</html>
