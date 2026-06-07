@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mecomment.dat editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="wave.mp4" type="video/mp4">
+        Votre navigateur ne prend pas en charge les vidéos HTML5.
+    </video>
+
+    <div id="main-content">
+        <h1>Welcome to The Mecomment.dat Editor</h1>
+        <p>create easily mecomment.dat files</p>
+        
+        <button onclick="window.location.href='editor.html'">New File</button>
+        <button onclick="window.location.href='open.html'">Open File</button>
+        
+        <button type="button" id="get-started-btn" class="btn-link">Get Started</button>
+    </div>
+
+    <div id="tuto-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-tuto">&times;</span>
+            <h2>How to use mecomment.dat Editor 🎮</h2>
+            <hr style="border: 1px solid #ff9900; margin-bottom: 20px;">
+            
+            <div class="tuto-step">
+                <h3>1️⃣ Create or Open a File</h3>
+                <p>Click on <strong>"New File"</strong> to start from scratch or <strong>"Open File"</strong> to import an existing <code>mecomment.dat</code> from your computer.</p>
+            </div>
+
+            <div class="tuto-step">
+                <h3>2️⃣ Insert Moving Icons</h3>
+                <p>Click on the <strong>"Moving Icons ▾"</strong> dropdown menu. You will see a large grid containing all PS3 icons sorted by categories. Click on any icon button to insert its text tag (ex: <code>[CIRCLE]</code>) where your cursor is.</p>
+            </div>
+
+            <div class="tuto-step">
+                <h3>3️⃣ Compile and Save</h3>
+                <p>When you click <strong>"Save and Download"</strong>, the editor automatically replaces all text tags with their exact secret Hexadecimal bytes (like <code>efa280</code>). The downloaded file is 100% clean and ready for your PS3 system or HxD!</p>
+            </div>
+
+            <div class="tuto-step">
+                <h3>4️⃣ Installation on PS3</h3>
+                <p>Place your newly generated <code>mecomment.dat</code> file into your PS3 directory via FTP or USB: <br><code>dev_hdd0/home/0000000X/friendim/mecomment.dat</code></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("tuto-modal");
+        const btn = document.getElementById("get-started-btn");
+        const span = document.getElementsByClassName("close-tuto")[0];
+
+        // Ouvre le tuto au clic sur Get Started
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Ferme le tuto au clic sur la petite croix (X)
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Ferme le tuto si on clique n'importe où en dehors de la boîte blanche
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
